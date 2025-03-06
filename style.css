@@ -1,0 +1,343 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css);
+
+@keyframes fadeInFromTop {
+    0% {
+      opacity: 0; /* Elemen tidak terlihat */
+      transform: translateY(-500px); /* Geser elemen ke atas */
+    }
+    100% {
+      opacity: 1; /* Elemen terlihat sepenuhnya */
+      transform: translateY(0); /* Kembali ke posisi asli */
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cloudsAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+@keyframes borderSwitch {
+    0% {
+        border-color: #7474BF;
+    }
+    25% {
+        border-color: #348AC7;
+    }
+    50% {
+        border-color: #7474BF;
+    }
+    75% {
+        border-color: #348AC7;
+    }
+    100% {
+        border-color: #7474BF;
+    }
+}
+
+
+
+@keyframes textAnimation {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes rotateGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes rotateBorder {
+    0% {
+
+        border-image: linear-gradient(45deg, #FF6B6B, #4ECDC4) 1;
+    }
+    50% {
+
+        border-image: linear-gradient(45deg, #4ECDC4, #FF6B6B) 1;
+    }
+    100% {
+
+        border-image: linear-gradient(45deg, #FF6B6B, #4ECDC4) 1;
+    }
+}
+/* Media Queries */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    input, button {
+        width: 100%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        width: 60%;
+    }
+}
+
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(90deg, #7474BF 10%, #348AC7 90%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    animation: fadeInFromTop 1s ease;
+}
+
+
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+
+/* Style untuk Input Search Bar */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid transparent; /* Border transparan untuk gradient */
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: rotateBorder 2s linear infinite; /* Terapkan animasi */
+}
+
+/* Efek saat Input di-Hover */
+input:hover {
+    animation: rotateBorder 2s linear infinite; /* Percepat animasi saat hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Efek saat Input di-Focus */
+input:focus {
+    outline: none; /* Hilangkan outline default */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Style untuk Tombol */
+button {
+    font-family: 'Open Sans';
+    width: 100%;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #7474BF, #348AC7, #7474BF, #348AC7); /* Gradient awal */
+    background-size: 300% 300%; /* Ukuran gradient diperbesar */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden; /* Pastikan gradient tidak keluar dari tombol */
+}
+
+/* Efek saat Tombol di-Hover */
+button:hover {
+    animation: rotateGradient 3s linear infinite; /* Terapkan animasi saat hover */
+    transform: translateY(-2px);
+}
+
+/* Efek saat Tombol di-Klik */
+button:active {
+    transform: scale(0.95); /* Efek tekan saat tombol diklik */
+}
+
+.container {
+    animation: fadeInFromTop 0.5s ease;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #1B1212;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+#weather-info {
+    margin-top: 20px;
+    text-align: left;
+    color: #fff;
+}
+
+.weather-day {
+    font-family: 'Open Sans';
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #28282B;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.weather-day:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.weather-day h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+/* Ikon Cuaca */
+.weather-day h3::before {
+    font-family: 'Font Awesome 5 Free';
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* Ikon Matahari (Cuaca Cerah) */
+.weather-day.sunny h3::before {
+    content: '\f185'; /* Ikon matahari */
+    color: #FFD700; /* Warna kuning */
+}
+
+/* Ikon Awan (Cuaca Berawan) */
+.weather-day.cloudy h3::before {
+    content: '\f0c2'; /* Ikon awan */
+    color: #87CEEB; /* Warna biru muda */
+}
+
+/* Ikon Hujan (Cuaca Hujan) */
+.weather-day.rainy h3::before {
+    content: '\f740'; /* Ikon hujan */
+    color: #4682B4; /* Warna biru tua */
+}
+
+/* Ikon Petir (Cuaca Badai) */
+.weather-day.stormy h3::before {
+    content: '\f0e7'; /* Ikon petir */
+    color: #FFA500; /* Warna oranye */
+}
+
+/* Ikon Salju (Cuaca Bersalju) */
+.weather-day.snowy h3::before {
+    content: '\f2dc'; /* Ikon salju */
+    color: #FFFFFF; /* Warna putih */
+}
+
+.weather-day p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* Loading Screen */
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #7474BF 10%, #348AC7 90%);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+
+
+.loading p {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* HTML: <div class="loader"></div> 
+Ini dari google
+*/
+.loader {
+    width: 40px;
+    aspect-ratio: 1;
+    position: relative;
+    transform: rotate(45deg);
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50% 50% 0 50%;
+    background: #ffffff;
+    -webkit-mask: radial-gradient(circle 10px at 50% 50%,#0000 94%,#ffffff);
+  }
+  .loader:after {
+    animation: l6 1s infinite;
+    transform: perspective(300px) translateZ(0px)
+  }
+  @keyframes l6 {
+    to {transform: perspective(300px) translateZ(150px);opacity:0}
+  }

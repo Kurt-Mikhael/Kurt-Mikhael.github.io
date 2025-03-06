@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <i class='far fa-sun' style='font-size:90px; position: absolute; top: 120px; '></i>
+    <i class='fas fa-cloud-rain' style='font-size:90px; position: absolute; top: 120px;left: 500px ;'></i>
+    <i class='far fa-snowflake' style='font-size:90px; position: absolute; top: 120px;left: 940px ; '></i>
+    <div class="container">
+        <h1>City Weather Information</h1>
+        <input type="text" id="city-input" placeholder="Enter your city name">
+        <button id="search-btn">Let's Check</button>
+
+        <!-- Loading Screen -->
+        <div id="loading" class="loading">
+            <div class="loader"></div>
+            <p>Loading...</p>
+        </div>
+
+        <!-- Hasil Cuaca -->
+        <div id="weather-info">
+            <!-- Informasi cuaca akan ditampilkan di sini -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
