@@ -131,7 +131,11 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(90deg, #7474BF 10%, #348AC7 90%);
+    background-image: url("https://unsplash.it/600/400?image=1043&blur");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
     display: flex;
@@ -179,7 +183,34 @@ input:focus {
     outline: none; /* Hilangkan outline default */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
+/* Ikon Matahari dan Hujan */
+.fa-sun,
+.fa-cloud-rain,
+.fa-snowflake {
+    display: block;
+    font-size: 90px;
+    position: absolute;
+    top: 10%;
+    z-index: 0; /* Pastikan ikon di belakang konten */
+    color: rgba(255, 255, 255, 0.5); /* Warna ikon semi-transparan */
+}
 
+.fa-sun {
+    left: 30%;
+}
+
+.fa-cloud-rain {
+    right: 30%;
+}
+
+/* Media Queries untuk Ikon */
+@media (max-width: 600px) {
+    .fa-sun,
+    .fa-cloud-rain {
+        font-size: 50px; /* Ukuran lebih kecil di HP */
+        top: 5%;
+    }
+}
 /* Style untuk Tombol */
 button {
     font-family: 'Open Sans';
@@ -214,12 +245,12 @@ button:active {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background: #1B1212;
+    background: rgba(27, 18, 18, 0.8); /* Latar belakang semi-transparan */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Pastikan konten di atas ikon */
 }
 #weather-info {
     margin-top: 20px;
@@ -295,6 +326,7 @@ button:active {
 }
 
 /* Loading Screen */
+/* Loading Screen */
 .loading {
     display: none;
     position: fixed;
@@ -302,42 +334,45 @@ button:active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #7474BF 10%, #348AC7 90%);
+    background: rgba(0, 0, 0, 0.8); /* Latar belakang semi-transparan */
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    animation: backgroundAnimation 10s infinite alternate;
+    z-index: 1000; /* Pastikan loading di atas semua elemen */
 }
 
-
 .loading p {
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 16px;
     color: #ffffff;
 }
 
-/* HTML: <div class="loader"></div> 
-Ini dari google
-*/
+/* Animasi Loader */
 .loader {
     width: 40px;
     aspect-ratio: 1;
     position: relative;
     transform: rotate(45deg);
-  }
-  .loader:before,
-  .loader:after {
+}
+
+.loader:before,
+.loader:after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 50% 50% 0 50%;
     background: #ffffff;
-    -webkit-mask: radial-gradient(circle 10px at 50% 50%,#0000 94%,#ffffff);
-  }
-  .loader:after {
+    -webkit-mask: radial-gradient(circle 10px at 50% 50%, #0000 94%, #ffffff);
+}
+
+.loader:after {
     animation: l6 1s infinite;
-    transform: perspective(300px) translateZ(0px)
-  }
-  @keyframes l6 {
-    to {transform: perspective(300px) translateZ(150px);opacity:0}
-  }
+    transform: perspective(300px) translateZ(0px);
+}
+
+@keyframes l6 {
+    to {
+        transform: perspective(300px) translateZ(150px);
+        opacity: 0;
+    }
+}

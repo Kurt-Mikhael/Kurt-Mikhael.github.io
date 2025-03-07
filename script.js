@@ -60,7 +60,7 @@ document.getElementById('search-btn').addEventListener('click', function () {
 // Fungsi untuk menampilkan loading screen
 function showLoading() {
     document.getElementById('loading').style.display = 'flex';
-    document.getElementById('weather-info').innerHTML = ''; // Kosongkan hasil sebelumnya
+    document.getElementById('weather-info').style.display = ''; // Kosongkan hasil sebelumnya
 }
 
 // Fungsi untuk menyembunyikan loading screen
@@ -73,6 +73,10 @@ function displayWeather(data) {
     // Link json nya : https://api.open-meteo.com/v1/forecast?latitude=-6.2146&longitude=106.8451&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max&timezone=auto
     const weatherInfo = document.getElementById('weather-info');
     const dailyData = data.daily;
+    // Sembunyikan ikon matahari dan hujan
+    document.getElementById('sun-icon').style.display = 'none';
+    document.getElementById('rain-icon').style.display = 'none';
+    document.getElementById('snow-icon').style.display = 'none';
 
     let weatherHTML = '<h2>Daily Weather</h2>';
     dailyData.time.forEach((date, index) => {
