@@ -130,7 +130,7 @@ Sekarang sesuaikan media yang di hp juga untuk ikon-ikon cuaca.
         font-size: 50px;
         top: 5%;
     }
-    
+
 }
 
 @media (min-width: 1025px) {
@@ -214,15 +214,28 @@ input:focus {
 .fa-cloud-rain {
     right: 30%;
 }
-
-/* Media Queries untuk Ikon */
 @media (max-width: 600px) {
     .fa-sun,
-    .fa-cloud-rain {
+    .fa-cloud-rain,
+    .fa-snowflake {
         font-size: 50px; /* Ukuran lebih kecil di HP */
         top: 5%;
     }
+
+    .fa-sun {
+        left: 5%; /* Posisi lebih ke kiri */
+    }
+
+    .fa-cloud-rain {
+        right: 5%; /* Posisi lebih ke kanan */
+    }
+
+    .fa-snowflake {
+        display: flex;
+    }
 }
+/* Media Queries untuk Ikon */
+
 /* Style untuk Tombol */
 button {
     font-family: 'Open Sans';
