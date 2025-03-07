@@ -252,12 +252,6 @@ button:active {
     position: relative;
     z-index: 1; /* Pastikan konten di atas ikon */
 }
-@supports (backdrop-filter: blur(5px)) {
-    .container {
-        background: rgba(27, 18, 18, 0.5); /* Lebih transparan jika backdrop-filter didukung */
-        backdrop-filter: blur(5px);
-    }
-}
 
 #weather-info {
     margin-top: 20px;
